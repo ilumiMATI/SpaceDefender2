@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvuuauf6lspq"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_pr7a7"]
+[ext_resource type="Texture2D" uid="uid://dg5a1nh183y1n" path="res://sprites/Player.png" id="1_xd8rk"]
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_pr7a7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_xd8rk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -8, -8, 8, 8, 8)
+
+[node name="ShootMarker" type="Marker2D" parent="."]
+position = Vector2(0, -8)
