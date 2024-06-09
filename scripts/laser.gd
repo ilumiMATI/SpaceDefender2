@@ -1,3 +1,4 @@
+class_name Laser
 extends Node2D
 
 @export var SPEED: float = 200
@@ -14,6 +15,6 @@ func _process(delta):
 	position += direction * SPEED * delta
 
 func _on_area_2d_body_entered(body):
-	print("Laser Hit")
+	print_debug("Laser Hit")
 	body.get_parent().queue_free()
 	queue_free()

@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://edfgjm51kro0"]
+[gd_scene load_steps=10 format=3 uid="uid://edfgjm51kro0"]
 
 [ext_resource type="PackedScene" uid="uid://bvuuauf6lspq" path="res://scenes/player.tscn" id="1_4oas2"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_30cct"]
 [ext_resource type="PackedScene" uid="uid://cdceenk7y6g5e" path="res://scenes/enemy.tscn" id="2_361ad"]
 [ext_resource type="Theme" uid="uid://b4neqo4peigpq" path="res://UI/ui_theme.tres" id="4_rub6s"]
+[ext_resource type="PackedScene" uid="uid://ct6awv5ifrtq" path="res://scenes/garbage_collector.tscn" id="5_f25a6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_erpob"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_107l1"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4vpgk"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fgntv"]
+normal = Vector2(-1, 0)
 
 [node name="GameRoot" type="Node"]
 
@@ -18,19 +30,21 @@ editor_draw_limits = true
 
 [node name="Player" parent="." instance=ExtResource("1_4oas2")]
 
-[node name="Enemy" parent="." instance=ExtResource("2_361ad")]
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("2_361ad")]
 position = Vector2(57, -273)
 
-[node name="Enemy2" parent="." instance=ExtResource("2_361ad")]
+[node name="Enemy2" parent="Enemies" instance=ExtResource("2_361ad")]
 position = Vector2(1, -118)
 
-[node name="Enemy3" parent="." instance=ExtResource("2_361ad")]
+[node name="Enemy3" parent="Enemies" instance=ExtResource("2_361ad")]
 position = Vector2(0, -245)
 
-[node name="Enemy4" parent="." instance=ExtResource("2_361ad")]
+[node name="Enemy4" parent="Enemies" instance=ExtResource("2_361ad")]
 position = Vector2(-56, -270)
 
-[node name="Enemy5" parent="." instance=ExtResource("2_361ad")]
+[node name="Enemy5" parent="Enemies" instance=ExtResource("2_361ad")]
 position = Vector2(0, -182)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -70,3 +84,29 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "lower resolution"
+
+[node name="WorldBoundary" type="Node" parent="."]
+
+[node name="GarbageCollectorBottom" parent="WorldBoundary" instance=ExtResource("5_f25a6")]
+position = Vector2(0, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary/GarbageCollectorBottom"]
+shape = SubResource("WorldBoundaryShape2D_erpob")
+
+[node name="GarbageCollectorTop" parent="WorldBoundary" instance=ExtResource("5_f25a6")]
+position = Vector2(0, -600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary/GarbageCollectorTop"]
+shape = SubResource("WorldBoundaryShape2D_107l1")
+
+[node name="GarbageCollectorLeft" parent="WorldBoundary" instance=ExtResource("5_f25a6")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary/GarbageCollectorLeft"]
+position = Vector2(-300, 0)
+shape = SubResource("WorldBoundaryShape2D_4vpgk")
+
+[node name="GarbageCollectorRight" parent="WorldBoundary" instance=ExtResource("5_f25a6")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary/GarbageCollectorRight"]
+position = Vector2(300, 0)
+shape = SubResource("WorldBoundaryShape2D_fgntv")

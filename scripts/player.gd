@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var laser_scene: PackedScene = preload("res://scenes/laser.tscn")
@@ -18,7 +19,7 @@ func _physics_process(delta):
 
 func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
-		print("shoot")
+		print_debug("Laser shot")
 		shoot()
 
 func shoot():

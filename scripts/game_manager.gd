@@ -1,6 +1,5 @@
 extends Node
 
-
 @onready var button_ar_16x9 = %AR16x9
 @onready var button_ar_19_5x9 = %AR19_5x9
 @onready var button_ar_20x9 = %AR20x9
