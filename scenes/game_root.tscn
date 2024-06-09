@@ -1,27 +1,72 @@
-[gd_scene load_steps=3 format=3 uid="uid://edfgjm51kro0"]
+[gd_scene load_steps=5 format=3 uid="uid://edfgjm51kro0"]
 
 [ext_resource type="PackedScene" uid="uid://bvuuauf6lspq" path="res://scenes/player.tscn" id="1_4oas2"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_30cct"]
 [ext_resource type="PackedScene" uid="uid://cdceenk7y6g5e" path="res://scenes/enemy.tscn" id="2_361ad"]
+[ext_resource type="Theme" uid="uid://b4neqo4peigpq" path="res://UI/ui_theme.tres" id="4_rub6s"]
 
 [node name="GameRoot" type="Node"]
 
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_30cct")
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -189)
-zoom = Vector2(3, 3)
+unique_name_in_owner = true
+zoom = Vector2(4, 4)
+limit_bottom = 24
+editor_draw_limits = true
 
 [node name="Player" parent="." instance=ExtResource("1_4oas2")]
 
 [node name="Enemy" parent="." instance=ExtResource("2_361ad")]
-position = Vector2(0, -366)
+position = Vector2(57, -273)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_361ad")]
-position = Vector2(-29, -365)
+position = Vector2(1, -118)
 
 [node name="Enemy3" parent="." instance=ExtResource("2_361ad")]
-position = Vector2(40, -324)
+position = Vector2(0, -245)
 
 [node name="Enemy4" parent="." instance=ExtResource("2_361ad")]
-position = Vector2(-61, -283)
+position = Vector2(-56, -270)
 
 [node name="Enemy5" parent="." instance=ExtResource("2_361ad")]
-position = Vector2(40, -236)
+position = Vector2(0, -182)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -124.0
+offset_right = 170.0
+grow_vertical = 0
+theme = ExtResource("4_rub6s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="AR16x9" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "16 x 9"
+
+[node name="AR19_5x9" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "19.5 x 9"
+
+[node name="AR20x9" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "20 x 9"
+
+[node name="LowRes" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "lower resolution"

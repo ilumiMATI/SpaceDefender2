@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var laser_scene: PackedScene = preload("res://scenes/laser.tscn")
 @onready var shoot_marker = $ShootMarker
 
+
 const SPEED = 80.0
 
 func _physics_process(delta):
