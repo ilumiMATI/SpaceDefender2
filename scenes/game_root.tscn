@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://edfgjm51kro0"]
+[gd_scene load_steps=15 format=3 uid="uid://edfgjm51kro0"]
 
 [ext_resource type="PackedScene" uid="uid://bvuuauf6lspq" path="res://scenes/player.tscn" id="1_4oas2"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_30cct"]
@@ -18,8 +18,17 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fgntv"]
 normal = Vector2(-1, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_01e36"]
-size = Vector2(20, 434)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8g25"]
+size = Vector2(145, 434)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pm4ob"]
+size = Vector2(145, 434)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fctel"]
+size = Vector2(116, 434)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ref1"]
+size = Vector2(82, 434)
 
 [node name="GameRoot" type="Node"]
 
@@ -27,7 +36,7 @@ size = Vector2(20, 434)
 script = ExtResource("1_30cct")
 
 [node name="SpawnTime" type="Timer" parent="GameManager"]
-wait_time = 2.0
+wait_time = 0.5
 autostart = true
 
 [node name="Label" type="Label" parent="GameManager"]
@@ -176,24 +185,28 @@ shape = SubResource("WorldBoundaryShape2D_fgntv")
 position = Vector2(-82, -110)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundary/PlayerWallCollisionLeft"]
-shape = SubResource("RectangleShape2D_01e36")
+position = Vector2(-62.5, 0)
+shape = SubResource("RectangleShape2D_d8g25")
 
 [node name="PlayerWallCollisionRight" parent="PlayerBoundary" instance=ExtResource("6_2p6qj")]
 position = Vector2(82, -110)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundary/PlayerWallCollisionRight"]
-shape = SubResource("RectangleShape2D_01e36")
+position = Vector2(62.5, 0)
+shape = SubResource("RectangleShape2D_pm4ob")
 
 [node name="PlayerWallCollisionRight2" parent="PlayerBoundary" instance=ExtResource("6_2p6qj")]
 position = Vector2(0, -221)
 rotation = 1.57079
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundary/PlayerWallCollisionRight2"]
-shape = SubResource("RectangleShape2D_01e36")
+position = Vector2(-48, 1.16415e-10)
+shape = SubResource("RectangleShape2D_fctel")
 
 [node name="PlayerWallCollisionRight3" parent="PlayerBoundary" instance=ExtResource("6_2p6qj")]
 position = Vector2(0, 34)
 rotation = 1.57079
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundary/PlayerWallCollisionRight3"]
-shape = SubResource("RectangleShape2D_01e36")
+position = Vector2(31, 2.91038e-11)
+shape = SubResource("RectangleShape2D_4ref1")

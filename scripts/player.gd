@@ -43,12 +43,13 @@ func _physics_process(delta):
 				velocity = velocity.lerp(Vector2.ZERO, 10 * delta)
 		"Android":
 			if allow_movement:
-				# TODO: Fix overshooting when reaching destination
 				if using_direct_touch:
 					position = position.move_toward(finger_position + finger_direct_offset, SPEED * delta)
 				else:
 					position = position.move_toward(finger_pressed_position + finger_offset_scale * distance_to_finger + finger_offset, SPEED * delta)
-	#move_and_slide()
+			else:
+				velocity = Vector2.ZERO
+	move_and_slide()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("shoot"):

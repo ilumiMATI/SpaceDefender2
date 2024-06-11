@@ -13,7 +13,7 @@ z_index = 1
 texture = ExtResource("2_jf2w7")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, -12, -3, -3, -7, -3, -9, 6, -7, 10, -4, 6, 0, 9, 4, 6, 7, 10, 9, 6, 7, -3, 3, -3)
+polygon = PackedVector2Array(0, -12, -8, 1, -9, 5, -7, 10, -4, 6, 0, 9, 4, 6, 7, 10, 9, 5, 8, 1)
 
 [node name="ShootMarker" type="Marker2D" parent="."]
 position = Vector2(0, -8)

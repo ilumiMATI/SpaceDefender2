@@ -14,4 +14,4 @@ modulate = Color(0.898039, 0, 0.00392157, 1)
 texture = ExtResource("1_5nxdw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, -8, -8, 8, 8, 8)
+polygon = PackedVector2Array(7.99998, 8.00002, 2.02815e-05, -8, -8.00002, 7.99998)
