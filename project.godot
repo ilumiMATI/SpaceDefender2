@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="SpaceDefender"
+config/name="SpaceDefender2"
+config/version="0.1.0"
 run/main_scene="res://scenes/game_root.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://sprites/player/basic_rocket.png"
 
 [display]
 
