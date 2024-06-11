@@ -6,7 +6,7 @@ var direction := Vector2.UP
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	connect("body_entered",_on_area_2d_body_entered)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,5 +16,5 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	print_debug("Laser Hit")
-	body.get_parent().queue_free()
+	body.queue_free()
 	queue_free()

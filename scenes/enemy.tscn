@@ -1,17 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdceenk7y6g5e"]
+[gd_scene load_steps=3 format=3 uid="uid://cdceenk7y6g5e"]
 
 [ext_resource type="Texture2D" uid="uid://dg5a1nh183y1n" path="res://sprites/Player.png" id="1_5nxdw"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_ey0h4"]
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="CharacterBody2D"]
 rotation = 3.14159
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_ey0h4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.898039, 0, 0.00392157, 1)
 texture = ExtResource("1_5nxdw")
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -8, -8, 8, 8, 8)

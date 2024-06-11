@@ -1,7 +1,10 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b4neqo4peigpq"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b4neqo4peigpq"]
 
 [ext_resource type="FontFile" uid="uid://c8ftjeqqwuybt" path="res://UI/fonts/nokiafc22.ttf" id="1_ps31h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1yqe"]
 
 [resource]
 default_font = ExtResource("1_ps31h")
 default_font_size = 16
+Button/styles/focus = SubResource("StyleBoxEmpty_p1yqe")

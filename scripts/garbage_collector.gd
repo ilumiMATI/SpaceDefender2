@@ -5,8 +5,10 @@ func _ready():
 	connect("area_entered", destroy)
 
 func destroy(body):
-	if body.get_parent() is Laser:
+	if body is Laser:
 		print_debug("Removing Laser object")
+	elif body is Enemy:
+		print_debug("Removing Enemy object")
 	else:
 		print_debug("Removing unknown object")
-	body.get_parent().queue_free()
+	body.queue_free()
