@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdceenk7y6g5e"]
 
 [ext_resource type="Texture2D" uid="uid://dg5a1nh183y1n" path="res://sprites/Player.png" id="1_5nxdw"]
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_ey0h4"]
+[ext_resource type="Script" uid="uid://dio5iniswswax" path="res://scripts/enemy.gd" id="1_ey0h4"]
 
 [node name="Enemy" type="CharacterBody2D"]
 rotation = 3.14159
