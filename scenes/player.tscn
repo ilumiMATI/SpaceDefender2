@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvuuauf6lspq"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_pr7a7"]
+[ext_resource type="Script" uid="uid://dn5wsa7kdteke" path="res://scripts/player.gd" id="1_pr7a7"]
 [ext_resource type="Texture2D" uid="uid://bocpdqdxc083n" path="res://sprites/player/basic_rocket.png" id="2_jf2w7"]
 
 [node name="Player" type="CharacterBody2D"]

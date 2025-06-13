@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ct6awv5ifrtq"]
 
-[ext_resource type="Script" path="res://scripts/garbage_collector.gd" id="1_lgf0n"]
+[ext_resource type="Script" uid="uid://dbt4p081fcknf" path="res://scripts/garbage_collector.gd" id="1_lgf0n"]
 
 [node name="GarbageCollector" type="Area2D"]
 collision_mask = 7

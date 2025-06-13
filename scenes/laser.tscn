@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://wa5nsl1h8dhc"]
 
-[ext_resource type="Script" path="res://scripts/laser.gd" id="1_3pynt"]
+[ext_resource type="Script" uid="uid://bp11f50fjaysi" path="res://scripts/laser.gd" id="1_3pynt"]
 [ext_resource type="Texture2D" uid="uid://bugubk6iij7fw" path="res://sprites/Laser.png" id="1_a8bn8"]
 
 [node name="Laser" type="Area2D"]
