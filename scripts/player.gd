@@ -35,20 +35,34 @@ func update_offset_scale(value):
 
 func _physics_process(delta):
 	match OS.get_name():
-		"Windows":
+		"Windows", "macOS":
 			var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 			if direction:
 				velocity = velocity.lerp(direction * SPEED, 10 * delta)
 			else:
 				velocity = velocity.lerp(Vector2.ZERO, 10 * delta)
 		"Android":
+			#if allow_movement: # Older movement
+				#if using_direct_touch:
+					#position = position.move_toward(finger_position + finger_direct_offset, SPEED * delta)
+				#else:
+					#position = position.move_toward(finger_pressed_position + finger_offset_scale * distance_to_finger + finger_offset, SPEED * delta)
+			#else:
+				#velocity = Vector2.ZERO
 			if allow_movement:
+				var direction: Vector2 = Vector2.ZERO
 				if using_direct_touch:
-					position = position.move_toward(finger_position + finger_direct_offset, SPEED * delta)
+					direction = finger_position + finger_direct_offset - position
 				else:
-					position = position.move_toward(finger_pressed_position + finger_offset_scale * distance_to_finger + finger_offset, SPEED * delta)
+					direction = finger_pressed_position + finger_offset_scale * distance_to_finger + finger_offset - position
+				if direction.length() > 1:
+					direction = direction.normalized()
+					velocity = velocity.lerp(direction * SPEED, 10 * delta)
+				else:
+					velocity = velocity.lerp(Vector2.ZERO, 50 * delta)
+				
 			else:
-				velocity = Vector2.ZERO
+				velocity = velocity.lerp(Vector2.ZERO, 50 * delta)
 	move_and_slide()
 
 func _process(_delta):
@@ -56,7 +70,7 @@ func _process(_delta):
 		print_debug("Laser shot")
 		shoot()
 
-func _input(event):
+func _input(event): # TODO: This needs a review
 	if event is InputEventScreenTouch:
 		if event.index == 1 and event.pressed:
 			shoot()
