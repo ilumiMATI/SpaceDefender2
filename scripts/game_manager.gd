@@ -38,17 +38,21 @@ func _process(delta):
 	pass
 	
 func on_button_low_res_pressed():
-	print(str(720*0.8) + ":" + str(1280*0.8))
-	get_window().size = Vector2(720*0.8,1280*0.8)
+	print(str(720*0.5) + ":" + str(1280*0.5))
+	#get_viewport().size = Vector2(720*0.5,1280*0.5)
+	DisplayServer.window_set_size(Vector2i(720 * 0.8, 1280 * 0.8))
 
 func on_button_ar_16x9_pressed():
 	print("16:9")
-	get_window().size = Vector2(720,1280)
+	#get_viewport().size = Vector2(720,1280)
+	DisplayServer.window_set_size(Vector2i(720, 1280))
 
 func on_button_ar_19_5x9_pressed():
 	print("19.5:9")
-	get_window().size = Vector2(591,1280)
+	#get_viewport().size = Vector2(591,1280)
+	DisplayServer.window_set_size(Vector2i(592, 1280))
 
 func on_button_ar_20x9_pressed():
 	print("20:9")
-	get_window().size = Vector2(576,1280)
+	#get_viewport().size = Vector2(576,1280)
+	DisplayServer.window_set_size(Vector2i(576, 1280))
